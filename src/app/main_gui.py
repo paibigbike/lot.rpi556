@@ -38,7 +38,7 @@ app = tkinter.Tk() # appercation a class of tkinter.Tk
 app.geometry("400x400")
 canvas = tkinter.Canvas(app, width=120, height=120)
 circle = canvas.create_oval(10,10,110,110,
-                            fill="green")
+                            fill=color)
 canvas.pack()
 
 # make a button (tkinter class) and put it in the app
