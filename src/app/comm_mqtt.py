@@ -26,7 +26,7 @@ def on_connection(*args):
     print("Connected")
     client.subscribe(SUBSCRIBE_TOPIC)
 
-def on_massage(client, user_data, msg:mqtt.MQTTMessage)
+def on_massage(client, user_data, msg:mqtt.MQTTMessage):
     print("got massage", msg.payload)
 
 
