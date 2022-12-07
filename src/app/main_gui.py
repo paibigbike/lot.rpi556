@@ -11,7 +11,26 @@ __author__= "Chatpon Chaimongkol"
 import tkinter
 
 #make a variable to ch
-color = 'green' # = assignment; assign 'red' to color
+color = 'red' # = assignment; assign 'red' to color
+
+class StatusButton:
+    def __init__(self,pesent):
+        self.color = 'red'
+        self.canvas = tkinter.Canvas(app, width=120, height=120)
+        self.circle = self.canvas.create_oval(10, 10, 110, 110,
+                                    fill=color)
+        self.canvas.pack()
+    def toggle_color(self):
+     if self.color == 'red':  # == is a comparison
+         self.color = 'yellow'
+         #
+     elif self.color == 'yellow':
+         self.color = 'green'
+
+     elif self.color == 'green':
+         self.color = 'red'
+
+     self.canvas.itemconfig(self.circle, fill=self.color)
 
 # make a python function to print "hello world"
 # def - define
@@ -21,7 +40,7 @@ def hello_world():
     if color == 'green': # == is a comparison
         color = 'yellow'
         #
-    elif color== 'yellow':
+    elif color == 'yellow':
         color = 'red'
 
     elif color == 'red':
@@ -36,18 +55,22 @@ app = tkinter.Tk() # appercation a class of tkinter.Tk
 # string as an argument.
 
 app.geometry("400x400")
-canvas = tkinter.Canvas(app, width=120, height=120)
-circle = canvas.create_oval(10,10,110,110,
-                            fill=color)
-canvas.pack()
+satus_btn = StatusButton(app)
+print(satus_btn)
+satus_btn2 = StatusButton(app)
+print(satus_btn2)
 
 # make a button (tkinter class) and put it in the app
 # Button take 2 arguments, app where to put the button
 # text - key word argument
 
-tkinter.Button(app, text= "hello world",
-                          command=hello_world).pack()
-
+tkinter.Button(app, text= "Toggle Circle 1",
+                          command=satus_btn.toggle_color).pack()
+tkinter.Button(app, text= "Toggle Circle 1",
+                          command=satus_btn2.toggle_color).pack()
 
 app.mainloop() # mainloop is method of tkinter.Tk
 #method
+print('====')
+print(satus_btn.toggle_color)
+print(satus_btn.toggle_color())
