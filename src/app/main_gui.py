@@ -37,29 +37,30 @@ class StatusButton:
 
         self.canvas.itemconfig(self.circle, fill=self.color)
 
+if __name__ == '__main__':
+    app = tkinter.Tk()  # appercation a class of tkinter.Tk
+    # geometry is a method of the tkinter.Tk class that
+    # sets the size of the app window . It takes a
+    # string as an argument.
 
-app = tkinter.Tk()  # appercation a class of tkinter.Tk
-# geometry is a method of the tkinter.Tk class that
-# sets the size of the app window . It takes a
-# string as an argument.
+    app.geometry("400x400")
+    satus_btn = StatusButton(app)
+    print(satus_btn)
+    satus_btn2 = StatusButton(app)
+    print(satus_btn2)
 
-app.geometry("400x400")
-satus_btn = StatusButton(app)
-print(satus_btn)
-satus_btn2 = StatusButton(app)
-print(satus_btn2)
+    # make a button (tkinter class) and put it in the app
+    # Button take 2 arguments, app where to put the button
+    # text - key word argument
 
-# make a button (tkinter class) and put it in the app
-# Button take 2 arguments, app where to put the button
-# text - key word argument
+    tkinter.Button(app, text="Toggle Circle 1",
+                   command=satus_btn.toggle_color).pack()
+    tkinter.Button(app, text="Toggle Circle 1",
+                   command=satus_btn2.toggle_color).pack()
 
-tkinter.Button(app, text="Toggle Circle 1",
-               command=satus_btn.toggle_color).pack()
-tkinter.Button(app, text="Toggle Circle 1",
-               command=satus_btn2.toggle_color).pack()
+    app.mainloop()  # mainloop is method of tkinter.Tk
+    # method
+    print('====')
+    print(satus_btn.toggle_color)
+    print(satus_btn.toggle_color())
 
-app.mainloop()  # mainloop is method of tkinter.Tk
-# method
-print('====')
-print(satus_btn.toggle_color)
-print(satus_btn.toggle_color())
