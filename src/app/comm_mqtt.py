@@ -25,6 +25,13 @@ SUBSCRIBE_TOPIC = "Naresuan/+"
 
 
 class MQTTConn:
+    """
+    use the paho
+    Attributes
+        root(main_gui.SensorUI):
+        client(mqtt.client): paho client for mqtt communicate
+    """
+
     def __init__(self, root: main_qui2.SensorUI):
         self.root = root
         self.client = mqtt.Client()
@@ -35,6 +42,12 @@ class MQTTConn:
         self.client.loop_start()
 
     def publish(self, massage):
+        """
+        Sent a massage to the HIVE MQ broker using the PUBLISH_TOPIC
+        Args:
+            massage(str): massage to msg
+        """
+
         self.client.publish(PUBLISH_TOPIC, massage)
 
     # def on_subscription(*args):
@@ -42,11 +55,22 @@ class MQTTConn:
 
     def on_connection(self, *args):
         """ Call back for when mqtt connect to the broker
-        and prints out on acknowleadgement and subsceibes"""
+        and prints out on acknowleadgement and subsceibes
+        """
+
         print("Connected")
         self.client.subscribe(SUBSCRIBE_TOPIC)
 
     def on_massage(self, client, user_data, msg: mqtt.MQTTMessage):
+        """
+        Callback the receiving massage
+        Args:
+            client:
+            user_data:
+            msg(mqtt_MQTTMassage) : massage receiving
+
+        """
+
         print("got massage:", msg.payload)
         print("from topic: ", msg.topic)
         name = msg.topic.split('/')[-1]
@@ -61,9 +85,9 @@ class MQTTConn:
 
 
 if __name__ == '__main__':
-    client = MQTTConn()
+    test_client = MQTTConn()
 
     while True:
-        client.publish(PUBLISH_TOPIC,
+        test_client.publish(PUBLISH_TOPIC,
                        "Hello_this is Chatpon")
         time.sleep(5)
