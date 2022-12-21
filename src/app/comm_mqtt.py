@@ -51,7 +51,13 @@ class MQTTConn:
         print("from topic: ", msg.topic)
         name = msg.topic.split('/')[-1]
         print("massage from:", name)
-        self.root.toggle_status(name)
+        if msg.payload == b"on":
+            sensor_state = True
+        else:
+            sensor_state = False
+
+        self.root.change_status(name,
+                                sensor_state)
 
 
 if __name__ == '__main__':

@@ -31,17 +31,28 @@ class SensorUI(tk.Tk):
         # make a button (tkinter class) and put it in the app
         # Button take 2 arguments, app where to put the button
         # text - key word argument
-
-        tk.Button(self, text="Change status",
-                  command=self.button_click).pack(side=tk.TOP)
+        self.running = False
+        self.button = tk.Button(self, text="Turn on",
+                  command = self.button_click)
+        self.button.pack(side=tk.TOP)
 
     def button_click(self):
-        index = NAME.index("Chatpon")
-        self.comm.publish("Hello this is Chatpon")
+        if self.running: # if True turn off the sensor
+            self.running = False
+            msg = "off"
+            self.button.config(text="turn om")
 
-    def toggle_status(self, name):
+        else:
+            self.running = True
+            msg = "on"
+            self.button.config(text="turn off")
+        self.change_status("Chatpon", self.running)
+        #index = NAME.index("Chatpon")
+        self.comm.publish(msg)
+
+    def change_status(self, name, _running):
         index = NAME.index(name)
-        self.status_buttons[index].toggle_color()
+        self.status_buttons[index].toggle_color(_running)
 
 class StatusButton(tk.Frame):
     """ Display the status using a canvas
@@ -61,13 +72,11 @@ class StatusButton(tk.Frame):
         tk.Label(self, text=name, font=42).pack(side=tk.TOP)
         self.pack(side=tk.LEFT)
 
-    def toggle_color(self):
+    def toggle_color(self, state):
         """ Toggle color between red and green """
-        if self.color == 'red':  # == is a comparison
-            self.color = 'yellow'
-        elif self.color == 'yellow':
+        if state:
             self.color = 'green'
-        elif self.color == 'green':
+        else:
             self.color = 'red'
 
         self.canvas.itemconfig(self.circle, fill=self.color)
