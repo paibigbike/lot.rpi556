@@ -7,10 +7,10 @@ sensor data, using the paho mqtt library
 
 __author__ = "Chatpon Chaimongkol"
 
-# standand library
+# standard library
 import time
 
-# installled library
+# installed library
 import paho.mqtt.client as mqtt
 
 # local file
@@ -87,5 +87,5 @@ if __name__ == '__main__':
 
     while True:
         test_client.publish(PUBLISH_TOPIC,
-                            "Hello_this is Chatpon")
+                            "Hello this is Chatpon")
         time.sleep(5)
