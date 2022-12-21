@@ -72,7 +72,8 @@ class SensorUI(tk.Tk):
         change the status of the one of the StatusButton
 
         Args:
-            name: str
+            name (str) : name of the button to change
+            _running(bool) : if the status is on (True) or off (False)
 
         Returns:
 
