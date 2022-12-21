@@ -13,10 +13,8 @@ import time
 # installled library
 import paho.mqtt.client as mqtt
 
-#local file
+# local file
 import main_qui2
-
-
 
 HIVEMQTT_PORT = 1883  # CONSTANT
 HIVEMQTT_BROKER = "broker.hivemq.com"
@@ -51,11 +49,11 @@ class MQTTConn:
         self.client.publish(PUBLISH_TOPIC, massage)
 
     # def on_subscription(*args):
-        # print("subscribed:", args)
+    # print("subscribed:", args)
 
     def on_connection(self, *args):
         """ Call back for when mqtt connect to the broker
-        and prints out on acknowleadgement and subsceibes
+        and prints out on acknowledgement and subscribe
         """
 
         print("Connected")
@@ -89,5 +87,5 @@ if __name__ == '__main__':
 
     while True:
         test_client.publish(PUBLISH_TOPIC,
-                       "Hello_this is Chatpon")
+                            "Hello_this is Chatpon")
         time.sleep(5)
