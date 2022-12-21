@@ -24,9 +24,9 @@ SUBSCRIBE_TOPIC = "Naresuan/+"
 
 class MQTTConn:
     """
-    use the paho
+    Use the paho library to connect to the HIVE MQ mqtt broker
     Attributes
-        root(main_gui.SensorUI):
+        root (main_gui.SensorUI): root user interface app
         client(mqtt.client): paho client for mqtt communicate
     """
 
@@ -43,7 +43,7 @@ class MQTTConn:
         """
         Sent a massage to the HIVE MQ broker using the PUBLISH_TOPIC
         Args:
-            massage(str): massage to msg
+            massage(str): massage to send
         """
 
         self.client.publish(PUBLISH_TOPIC, massage)
