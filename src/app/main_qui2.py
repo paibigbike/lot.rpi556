@@ -17,6 +17,15 @@ NAME = ["Kyle", "Chatpon", "Tao", "Sudarat"]
 
 
 class SensorUI(tk.Tk):
+    """ a graphical user interface to monitor a grap sensor
+
+    Attributes:
+         comm(comm.mqtt.MQTTCom): communication  though a mqtt broker
+         status_buttons (list(StatusButton)): List of  StatusButton to
+         display if the sensor are on or off
+         running (bool) : status of the sensor of the owner button(tk.button)
+
+    """
 
     def __init__(self):
         tk.Tk.__init__(self)  # initialize parent class
@@ -37,6 +46,14 @@ class SensorUI(tk.Tk):
         self.button.pack(side=tk.TOP)
 
     def button_click(self):
+
+        """
+
+        Toggle the status of the sensor True -> False or False -> True
+        update the text of the run button, update the local StatusButton
+
+        """
+
         if self.running: # if True turn off the sensor
             self.running = False
             msg = "off"
@@ -51,6 +68,15 @@ class SensorUI(tk.Tk):
         self.comm.publish(msg)
 
     def change_status(self, name, _running):
+        """
+        change the status of the one of the StatusButton
+
+        Args:
+            name: str
+
+        Returns:
+
+        """
         index = NAME.index(name)
         self.status_buttons[index].toggle_color(_running)
 
