@@ -81,6 +81,7 @@ class SensorUI(tk.Tk):
         index = NAME.index(name)
         self.status_buttons[index].toggle_color(_running)
 
+
 class StatusButton(tk.Frame):
     """ Display the status using a canvas
             Attributes:
