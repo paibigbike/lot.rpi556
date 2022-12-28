@@ -29,7 +29,7 @@ class SensorUI(tk.Tk):
 
     def __init__(self):
         tk.Tk.__init__(self)  # initialize parent class
-        self.comm = comm_mqtt.MQTTConn(self)
+        self.comm = comm_mqtt.MQTTComm(self)
         status_frame = tk.Frame(self, relief=tk.RIDGE, borderwidth=5)
         self.status_buttons = []
         print("1: ", self.status_buttons)

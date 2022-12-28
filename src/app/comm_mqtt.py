@@ -14,7 +14,7 @@ import time
 import paho.mqtt.client as mqtt
 
 # local file
-import main_qui2
+import main_gui2
 
 HIVEMQTT_PORT = 1883  # CONSTANT
 HIVEMQTT_BROKER = "broker.hivemq.com"
@@ -22,7 +22,7 @@ PUBLISH_TOPIC = "Naresuan/Chatpon"
 SUBSCRIBE_TOPIC = "Naresuan/+"
 
 
-class MQTTConn:
+class MQTTComm:
     """
     Use the paho library to connect to the HIVE MQ mqtt broker
     Attributes
@@ -30,7 +30,7 @@ class MQTTConn:
         client(mqtt.client): paho client for mqtt communicate
     """
 
-    def __init__(self, root: main_qui2.SensorUI):
+    def __init__(self, root: main_gui2.SensorUI):
         self.root = root
         self.client = mqtt.Client()
         self.client.on_connect = self.on_connection
@@ -83,7 +83,7 @@ class MQTTConn:
 
 
 if __name__ == '__main__':
-    test_client = MQTTConn()
+    test_client = MQTTComm()
 
     while True:
         test_client.publish(PUBLISH_TOPIC,
