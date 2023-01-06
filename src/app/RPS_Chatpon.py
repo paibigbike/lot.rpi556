@@ -50,6 +50,6 @@ class Rock_Paper_Scissors:
 
 
 app = tk.Tk()
-app.geometry('400x200')  # size
+app.geometry('400x400')  # size
 Rock_Paper_Scissors(app)
 app.mainloop()

@@ -13,7 +13,7 @@ import tkinter as tk
 # local files
 import comm_mqtt
 
-NAME = ["Kyle", "Chatpon", "Tao", "Sudarat"]
+NAMES = ["Kyle", "Chatpon", "Tao", "Sudarat"]
 
 
 class SensorUI(tk.Tk):
@@ -34,7 +34,7 @@ class SensorUI(tk.Tk):
         self.status_buttons = []
         print("1: ", self.status_buttons)
         for i in range(4):
-            status_btn = StatusButton(status_frame, NAME[i])
+            status_btn = StatusButton(status_frame, NAMES[i])
             self.status_buttons.append(status_btn)
         status_frame.pack(side=tk.TOP)
         # make a button (tkinter class) and put it in the app
@@ -78,8 +78,9 @@ class SensorUI(tk.Tk):
         Returns:
 
         """
-        index = NAME.index(name)
-        self.status_buttons[index].toggle_color(_running)
+        if name in NAMES:
+            index = NAMES.index(name)
+            self.status_buttons[index].toggle_color(_running)
 
 
 class StatusButton(tk.Frame):
