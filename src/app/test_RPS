@@ -1,0 +1,51 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel
+import random
+
+class RPSGame(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Rock Paper Scissors")
+
+        # Create buttons for the user to select "rock," "paper," or "scissors"
+        self.rock_button = QPushButton("Rock", self)
+        self.rock_button.clicked.connect(lambda: self.play_game("rock"))
+        self.paper_button = QPushButton("Paper", self)
+        self.paper_button.clicked.connect(lambda: self.play_game("paper"))
+        self.scissors_button = QPushButton("Scissors", self)
+        self.scissors_button.clicked.connect(lambda: self.play_game("scissors"))
+
+        # Create a label to display the results of the game
+        self.result_label = QLabel("Make your move", self)
+
+        # Create a layout and add the buttons and label
+        vbox = QVBoxLayout(self)
+        vbox.addWidget(self.rock_button)
+        vbox.addWidget(self.paper_button)
+        vbox.addWidget(self.scissors_button)
+        vbox.addWidget(self.result_label)
+
+        # Set the layout and show the window
+        self.setLayout(vbox)
+        self.show()
+
+    def play_game(self, user_choice):
+        options = ["rock", "paper", "scissors"]
+        computer_choice = random.choice(options)
+        if user_choice == computer_choice:
+            result = "Tie!"
+        elif user_choice == "rock" and computer_choice == "scissors":
+            result = "You win! Rock beats scissors."
+        elif user_choice == "paper" and computer_choice == "rock":
+            result = "You win! Paper beats rock."
+        elif user_choice == "scissors" and computer_choice == "paper":
+            result = "You win! Scissors beat paper."
+        else:
+            result = "You lose! {} beats {}.".format(computer_choice, user_choice)
+
+        self.result_label.setText(result)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    game = RPSGame()
+    sys.exit(app.exec_())
