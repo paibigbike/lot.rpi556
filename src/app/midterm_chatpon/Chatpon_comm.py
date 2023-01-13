@@ -8,7 +8,7 @@ sensor data,using the paho matt library
 __author__ = "Chatpon Chaimongkol"
 
 import paho.mqtt.client as mqtt
-import pai2
+import Chatpon_RPS
 import random
 import time
 

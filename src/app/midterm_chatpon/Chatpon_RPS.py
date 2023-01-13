@@ -10,7 +10,7 @@ __author__ = "Chatpon Chaimongkol"
 
 # standard libra
 import tkinter as tk
-import pai_comm  # MQTT
+import Chatpon_comm  # MQTT
 import random
 
 class Rock_Paper_Scissors(tk.Tk):
