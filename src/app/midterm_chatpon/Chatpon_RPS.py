@@ -13,11 +13,12 @@ import tkinter as tk
 import Chatpon_comm  # MQTT
 import random
 
+
 class Rock_Paper_Scissors(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
 
-        self.comm = pai_comm.MQTTConn(self)  # MQTT
+        self.comm = Chatpon_comm.MQTTConn(self)  # MQTT
 
         # Rock
         self.rock_button = tk.Button(self, text="Rock",

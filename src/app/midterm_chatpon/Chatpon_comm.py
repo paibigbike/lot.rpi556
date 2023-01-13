@@ -32,7 +32,7 @@ class MQTTConn:
         root(main_gui.SensorUI): root user interface app
         client (mqtt.Client): paho client for mqtt communication
     """
-    def __init__(self, root: pai2.Rock_Paper_Scissors):
+    def __init__(self, root: Chatpon_RPS.Rock_Paper_Scissors):
         self.root = root
         self.client = mqtt.Client()
         self.client.on_connect = self.on_connection
