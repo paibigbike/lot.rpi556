@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Chatpon Chaimongkol <catponc65@nu.ac.th>
+# Copyright (C) 2022 Chatpon Chaimongkol <chtponc65@nu.ac.th>
 
 """
 Communicate with the HIVEMQ broker to recevive
