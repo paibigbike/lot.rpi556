@@ -9,7 +9,6 @@ Wrap a matplotlib pyplot in a tkinter frame
 
 __author__ = "Chatpon Chaimongkol"
 
-
 # standard library
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -89,12 +88,3 @@ class Sensordata:
         print(self.time)
         print(self.temperature)
         self.display.update_line(self.time, self.temperature)
-
-
-if __name__ == '__main__':
-    parent = tk.Tk()
-    sensor_data = Sensordata(parent)
-    tk.Button(parent, text="update data",
-              command=sensor_data.add_data).pack()
-    parent.mainloop()
-
