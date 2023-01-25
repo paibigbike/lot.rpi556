@@ -31,7 +31,7 @@ class TestSensorData(unittest.TestCase):
         print(f'time: (sensor_class.time)')
         print(f'temp: (sensor_class.temperature)')
         self.assertEqual([now], sensor_class.time)
-        self.assertEqual([now], sensor_class.temperature)
+        self.assertEqual([5], sensor_class.temperature)
 
         now2 = datetime(2023, 1, 24, 10, 50, 12)
         sensor_class.add_data(now2, 10)
