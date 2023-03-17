@@ -19,7 +19,7 @@ class Receive:
     def get_data(self, _data):
         print("get data")
         self.data.add_data(_data)
-        return 0
+        return
 
 
 class Data:
