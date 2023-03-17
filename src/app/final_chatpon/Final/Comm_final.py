@@ -28,7 +28,7 @@ class MQTTConn:
     def __init__(self, root: final_1_gui_Chatpon):
 
         self.root = root
-        self.client = mqtt.Client()
+        self.client = mqtts.Client()
         self.client.on_connect = self.on_connection
         self.client.on_message = self.on_message
 
