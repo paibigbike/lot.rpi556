@@ -12,7 +12,7 @@ __author__ = "Chatpon Chaimongkol"
 import paho.mqtt.client as mqtt
 
 # local file
-import final_1_gui_Chatpon
+import Final_1_gui_Chatpon
 
 HIVEMQTT_PORT = 1883  # CONSTANT
 HIVEMQTT_BROKER = "broker.hivemq.com"
@@ -25,7 +25,7 @@ SUBSCRIBE_TOPIC_Tx = "Naresuan/Final/Chatpon/+"
 
 
 class MQTTConn:
-    def __init__(self, root: final_1_gui_Chatpon):
+    def __init__(self, root: Final_1_gui_Chatpon):
 
         self.root = root
         self.client = mqtt.Client()
@@ -35,7 +35,7 @@ class MQTTConn:
         self.client.connect(HIVEMQTT_BROKER, HIVEMQTT_PORT)
         self.client.loop_start()
 
-        self.Pressing = final_1_gui_Chatpon.Connect_to_Comm
+        self.Pressing = Final_1_gui_Chatpon.Connect_to_Comm
 
     def publish(self, message):
         """
