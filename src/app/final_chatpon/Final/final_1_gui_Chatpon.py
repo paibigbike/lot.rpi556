@@ -16,9 +16,9 @@ import Comm_final
 
 class Connect_to_Comm(tk.Tk):
 
-    def __init__(self, master: Comm_final):
+    def __init__(self, masters: Comm_final):
         self.comm = Comm_final.MQTTConn(self)
-        self.app = master
+        self.app = masters
 
         self.app.title("Communicated with Mqtt")  # Named to GUI
 
