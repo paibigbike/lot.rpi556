@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Chatpon
+# Copyright (C) 2022 Chatpon Chaimongkol <chtponc65@nu.ac.th>
 
 """
 
@@ -18,13 +18,14 @@ print(os.path.abspath(os.path.join("..", "..", "src", "app")))
 sys.path.append(os.path.join("..", "..", "src", "app"))
 print(sys.path)
 
+
 # local file
 from src.app import main_gui2
 
 
 class TestStatusButton(unittest.TestCase):
     def test_toggle_color(self):
-        status_button = main_qui2.StatusButton(None, "Chatpon")
+        status_button = main_gui2.StatusButton(None, "Chatpon")
         color = status_button.canvas.itemcget(status_button.circle, "fill")
         self.assertEqual(color, "red",
                          msg="StatusButton not change correctly ")

@@ -12,6 +12,7 @@ import tkinter as tk
 
 # local files
 import comm_mqtt
+import sensor_data
 
 NAMES = ["Kyle", "Chatpon", "Tao", "Sudarat"]
 
@@ -29,6 +30,7 @@ class SensorUI(tk.Tk):
 
     def __init__(self):
         tk.Tk.__init__(self)  # initialize parent class
+        self.data = sensor_data.SensorHubData(self)
         self.comm = comm_mqtt.MQTTComm(self)
         status_frame = tk.Frame(self, relief=tk.RIDGE, borderwidth=5)
         self.status_buttons = []
@@ -65,7 +67,7 @@ class SensorUI(tk.Tk):
             self.button.config(text="turn off")
         self.change_status("Chatpon", self.running)
         #index = NAME.index("Chatpon")
-        self.comm.publish(msg)
+        self.comm.publish(msg, is_data=False)
 
     def change_status(self, name, _running):
         """
@@ -118,7 +120,7 @@ if __name__ == '__main__':
     # sets the size of the app window . It takes a
     # string as an argument.
 
-    app.geometry("600x400")
+    app.geometry("1000x1000")
     # app2.geometry("400x400")
     app.mainloop()  # mainloop is method of tkinter.Tk
     # method

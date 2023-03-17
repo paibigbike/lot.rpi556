@@ -7,8 +7,7 @@ sensor data,using the paho matt library
 
 __author__ = "Sudarat Tokampang"
 
-import paho.mqtt.client as mqtt
-import RPS_Chatpon
+from src.app.midterm_chatpon import RPS_Chatpon
 
 import time
 

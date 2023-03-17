@@ -2,7 +2,7 @@
 
 """
 
-Fill in the unit test for the display.Display method of update_line
+
 
 """
 
@@ -26,14 +26,22 @@ class TestDisplay(unittest.TestCase):
         _display = display.Display(None)
         time = [datetime(2023, 1, 24, 10, 50, 12)]
         temps = [5]
-        _display.update_line(time, temps)
+        label = "device 2 temp"
+        _display.update_line(time, temps, label)
         print("getting x y data")
-        print(_display.lines[0].get_xydata())
-        # assignment: use asserts to check update_line works correctly
-        xy_data = _display.lines[0].get_xydata().tolist()
-        print(f"plt data; {xy_data}")
-        print(f"xy data type: {type(xy_data)}")
-        self.assertEqual([[19381.45152777778, 5.0]], xy_data)
+        print(_display.lines[label].get_xydata())  # numpy.ndarray
+        self.assertListEqual(_display.lines[label].get_xydata().tolist(),
+                             [[19381.45152777778, 5.0]])
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+
+
 
 
 
